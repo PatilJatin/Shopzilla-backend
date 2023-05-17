@@ -16,7 +16,7 @@ router.route("/create/order").post(isLoggedIn, creatOrder);
 router.route("/order_details/:id").get(isLoggedIn, getOneOrder);
 router.route("/myorder").get(isLoggedIn, getLoggedInOders);
 router.route("/orders/:orderId").put(isLoggedIn, updateOrderPayment);
-router.route('/orders/:orderId/invoice').get(isLoggedIn, downloadInvice)
+router.route('/orders/:orderId/invoice').get( downloadInvice)
 
 router
   .route("/admin/getAllOrder")

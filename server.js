@@ -8,12 +8,12 @@ import cloudinary from "cloudinary";
 import cors from "cors";
 
 //route import
-import user from "../route/user.js";
-import product from "../route/product.js";
-import order from "../route/order.js";
-import payment from "../route/payment.js";
+import user from "./route/user.js";
+import product from "./route/product.js";
+import order from "./route/order.js";
+import payment from "./route/payment.js";
 
-import { connectWithDB } from "../config/database.js";
+import { connectWithDB } from "./config/database.js";
 connectWithDB();
 const app = express();
 const { PORT } = process.env;
@@ -24,7 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(
   cors({
-    origin: "https://shopzilla-e-commerce.netlify.app",
+    origin: "*",
     credentials: true,
   })
 );
@@ -42,10 +42,10 @@ app.use(
 app.use(morgan("tiny"));
 
 //router middleware
-// app.use("/api/v1", user);
-// app.use("/api/v1", product);
-// app.use("/api/v1", order);
-// app.use("/api/v1", payment);
+app.use("/api/v1", user);
+app.use("/api/v1", product);
+app.use("/api/v1", order);
+app.use("/api/v1", payment);
 
 app.get("/", (req, res) => {
   res.send("working");

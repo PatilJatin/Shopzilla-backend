@@ -12,7 +12,6 @@ const razorpay = new Razorpay({
 });
 
 export const creatOrder = BigPromise(async (req, res, next) => {
-
   const {
     shippingInfo,
     orderItems,
@@ -31,7 +30,7 @@ export const creatOrder = BigPromise(async (req, res, next) => {
   let order;
   try {
     const razorpayOrder = await razorpay.orders.create(options);
-    
+
     order = await Order.create({
       shippingInfo,
       orderItems,
@@ -41,7 +40,6 @@ export const creatOrder = BigPromise(async (req, res, next) => {
       totalAmount,
       user: req.user._id,
     });
-   
   } catch (error) {
     console.log(error);
   }
@@ -56,7 +54,7 @@ export const updateOrderPayment = BigPromise(async (req, res, next) => {
   try {
     const orderId = req.params.orderId;
     const paymentInfo = req.body.paymentInfo;
-   
+
     // Update the order with payment information
     const order = await Order.findByIdAndUpdate(
       orderId,
