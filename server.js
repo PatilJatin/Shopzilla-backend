@@ -42,10 +42,10 @@ app.use(
 app.use(morgan("tiny"));
 
 //router middleware
-app.use("/api/v1", user);
-app.use("/api/v1", product);
-app.use("/api/v1", order);
-app.use("/api/v1", payment);
+app.use("/", user);
+app.use("/", product);
+app.use("/", order);
+app.use("/", payment);
 
 app.get("/", (req, res) => {
   res.send("working");
