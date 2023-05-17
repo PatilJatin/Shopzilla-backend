@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "name": "e-comm-backend",
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/v1/(.*)",
+      "dest": "/api/v1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    }
+  ]
+  
+}
